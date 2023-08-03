@@ -1,15 +1,28 @@
-<div>
-    <h1 >Weather Application</h1>
-
-    <form>
-        <input type="text" name="cityName" placeholder="Enter a city name" [(ngModel)]="city">
-        <button type="button" (click)="getWeather()">Get Weather</button>
+<div class="container-component d-flex justify-content-start align-items-center flex-column"
+    [style.background]="'url(\'assets/img/' + main + '.jpg\')'">
+    <form class="mt-3">
+        <div class="input-group mb-4 w-75 mx-auto">
+            <input type="text" name="cityName" class="form-control" aria-label="Search City"
+                aria-describedby="basic-addon2" [placeholder]="city === 'Berlin' ? 'Search City' : ''"
+                [(ngModel)]="city">
+            <button type="button" class="input-group-text" id="basic-addon2" (click)="getWeather()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
     </form>
 
-    <div *ngIf="weatherData">
-        <h2> {{weatherData.name}} </h2>
-        <p>Temperature: {{weatherData.main.temp}}</p>
-        <p>Humidity: {{weatherData.main.humidity}}</p>
-        <p>Weather: {{weatherData.weather[0].description}}</p>
+    <div class="card bg-opacity text-white d-flex justify-content-center align-items-center w-50 ">
+        <div class="card-body" *ngIf="weatherData">
+            <h5 class="card-title"> {{weatherData.name.toUpperCase()}} </h5>
+            <hr />
+            <p>{{getCurrentDate()}}</p>
+            <hr />
+            <img class="icon" [src]="getWeatherIconUrl()" />
+            <h1 class="fw-bolder mb-5">{{roundToTemp(weatherData.main.temp)}} °C</h1>
+            <hr />
+            <p class="lead fw-bolder mb-0 ">{{weatherData.weather[0].description}}</p>
+            <p class="lead">{{convertToCelsius(minTemperature)}} °C | {{convertToCelsius(maxTemperature)}} °C</p>
+            <p></p>
+        </div>
     </div>
 </div>

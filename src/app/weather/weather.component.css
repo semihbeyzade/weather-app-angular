@@ -1,0 +1,18 @@
+.bg-opacity{
+   
+    background: rgba(54, 34, 34, 0.36);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.8px);
+    -webkit-backdrop-filter: blur(4.8px);
+    }
+    
+    .container-component{
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background-repeat: no-repeat  !important;
+        background-position: center !important;
+        background-size: cover !important;
+        
+    }

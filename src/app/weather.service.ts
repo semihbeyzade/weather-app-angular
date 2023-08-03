@@ -11,11 +11,15 @@ export class WeatherService {
   constructor(private http: HttpClient) { }
 
   getWeather(city: string) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.apiKey}`;
-    return this.http.get(url);
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.apiKey}&units=metric`;
+    return this.http.get<any>(url);
   }
 
   getDefaultWeatherData() {
     return this.getWeather(this.defaultCity);
+  }
+
+  getWeatherIconUrl(iconCode: string): string {
+    return `http://openweathermap.org/img/w/${iconCode}.png`;
   }
 }
