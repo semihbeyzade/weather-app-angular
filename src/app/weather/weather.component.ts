@@ -7,7 +7,7 @@ import { WeatherService } from '../weather.service';
   styleUrls: ['./weather.component.css']
 })
 export class WeatherComponent implements OnInit {
-  city: string = 'Berlin';
+  city: string="Berlin";
   weatherData: any = null;
   minTemperature: number = 0;
   maxTemperature: number = 0;
